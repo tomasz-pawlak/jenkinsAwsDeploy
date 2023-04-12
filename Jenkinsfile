@@ -4,7 +4,7 @@ pipeline {
         maven '3.9.1'
 //        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
     }
-    enviroment{
+    environment{
         dockerhub=credentials('docker')
     }
     stages {
