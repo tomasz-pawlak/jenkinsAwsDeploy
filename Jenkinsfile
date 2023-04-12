@@ -37,7 +37,7 @@ pipeline {
         stage('Push image to DockerHub') {
             steps {
                 script {
-                    sh 'docker login -u $dockerhub_USR -p $dockerhub_PASSWORD'
+                    sh 'docker login -u $dockerhub_USR -p $dockerhub_PSW'
 
 
                     sh 'docker push gurtoc/devops-integration'
