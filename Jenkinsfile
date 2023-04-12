@@ -23,11 +23,11 @@ pipeline {
             steps {
                 sh 'mvn clean package'
             }
-            post{
-                success{
-                    archiveArtifacts'target/devops-integration.jar'
-                }
-            }
+//            post{
+//                success{
+//                    archiveArtifacts'target/devops-integration.jar'
+//                }
+//            }
         }
         stage('Build docker image') {
             steps {
