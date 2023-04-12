@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Build maven') {
             steps {
-                sh 'mvn clean install'
+                sh 'mvn clean package'
             }
         }
         stage('Build docker image') {
