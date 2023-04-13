@@ -12,6 +12,7 @@ pipeline {
             steps {
                 sh 'java --version'
                 sh 'mvn --version'
+                echo 'hello world'
             }
         }
 //        stage('test') {
