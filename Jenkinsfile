@@ -19,7 +19,10 @@ pipeline {
                 echo AWS_ACCESS_KEY_ID
                 echo 'amazon key:'
                 echo AWS_SECRET_ACCESS_KEY
+                echo 'DOCKER id:'
                 echo dockerhub_USR
+                echo 'DOCKER PASS:'
+                echo dockerhub_PSW
             }
         }
 //        stage('test') {
