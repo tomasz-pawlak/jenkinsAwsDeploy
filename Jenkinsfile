@@ -15,7 +15,7 @@ pipeline {
                 sh 'mvn --version'
                 echo 'hello world'
                 echo '$registryCredential'
-                echo $dockerhub_USR
+                echo $dockerhub
             }
         }
 //        stage('test') {
