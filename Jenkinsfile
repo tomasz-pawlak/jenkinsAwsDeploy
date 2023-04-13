@@ -16,7 +16,7 @@ pipeline {
                 echo 'hello world'
                 echo '$registryCredential'
 //                echo $AWS_ACCESS_KEY_ID
-                echo $dockerhub_USR
+                $dockerhub_USR
             }
         }
 //        stage('test') {
