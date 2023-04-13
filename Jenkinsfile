@@ -14,35 +14,30 @@ pipeline {
                 sh 'mvn --version'
             }
         }
-        stage('test') {
-            steps {
-                sh 'mvn test -f pom.xml'
-            }
-        }
-        stage('Build maven') {
-            steps {
-                sh 'mvn clean package'
-            }
-//            post{
-//                success{
-//                    archiveArtifacts'target/devops-integration.jar'
+//        stage('test') {
+//            steps {
+//                sh 'mvn test -f pom.xml'
+//            }
+//        }
+//        stage('Build maven') {
+//            steps {
+//                sh 'mvn clean package'
+//            }
+//        }
+//        stage('Build docker image') {
+//            steps {
+//                sh 'docker build -t gurtoc/devops-integration .'
+//            }
+//        }
+//        stage('Push image to DockerHub') {
+//            steps {
+//                script {
+//                    sh 'docker login -u $dockerhub_USR -p $dockerhub_PSW'
+//
+//
+//                    sh 'docker push gurtoc/devops-integration'
 //                }
 //            }
-        }
-        stage('Build docker image') {
-            steps {
-                sh 'docker build -t gurtoc/devops-integration .'
-            }
-        }
-        stage('Push image to DockerHub') {
-            steps {
-                script {
-                    sh 'docker login -u $dockerhub_USR -p $dockerhub_PSW'
-
-
-                    sh 'docker push gurtoc/devops-integration'
-                }
-            }
-        }
+//        }
     }
 }
