@@ -15,8 +15,10 @@ pipeline {
                 sh 'mvn --version'
                 echo 'hello world'
 //                echo '$registryCredential'
-                echo 'amazon id:  $AWS_ACCESS_KEY_ID'
-                echo 'amazon key:  $AWS_SECRET_ACCESS_KEY'
+                echo 'amazon id:'
+                echo AWS_ACCESS_KEY_ID
+                echo 'amazon key:'
+                echo AWS_SECRET_ACCESS_KEY
                 echo dockerhub_USR
             }
         }
