@@ -6,7 +6,7 @@ pipeline {
     }
     environment{
         dockerhub=credentials('docker')
-        registryCredential = "aws"
+        registryCredential = credentials('aws')
     }
     stages {
         stage('Which Java?') {
