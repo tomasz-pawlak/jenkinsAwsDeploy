@@ -6,6 +6,7 @@ pipeline {
     }
     environment{
         dockerhub=credentials('docker')
+        registryCredential = "aws"
     }
     stages {
         stage('Which Java?') {
@@ -13,6 +14,7 @@ pipeline {
                 sh 'java --version'
                 sh 'mvn --version'
                 echo 'hello world'
+                echo $registryCredential
             }
         }
 //        stage('test') {
