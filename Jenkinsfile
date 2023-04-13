@@ -14,7 +14,7 @@ pipeline {
                 sh 'java --version'
                 sh 'mvn --version'
                 echo 'hello world'
-                echo $registryCredential
+                echo '$registryCredential'
             }
         }
 //        stage('test') {
