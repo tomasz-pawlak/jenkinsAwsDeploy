@@ -14,8 +14,8 @@ pipeline {
                 sh 'java --version'
                 sh 'mvn --version'
                 echo 'hello world'
-                echo '$registryCredential'
-//                echo AWS_ACCESS_KEY_ID
+//                echo '$registryCredential'
+                echo AWS_ACCESS_KEY_ID
                 echo dockerhub_USR
             }
         }
