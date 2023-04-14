@@ -46,11 +46,11 @@ pipeline {
 //                sh 'mvn test -f pom.xml'
 //            }
 //        }
-        stage('Build maven') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
+//        stage('Build maven') {
+//            steps {
+//                sh 'mvn clean package'
+//            }
+//        }
 //        stage('Build docker image') {
 //            steps {
 //                sh 'docker build -t demo .'
