@@ -46,7 +46,6 @@ pipeline {
         }
         stage('Build docker image') {
             steps {
-                sh 'sudo chmod 666 /var/run/docker.sock'
                 sh 'docker build -t demo .'
                 sh 'docker tag demo:latest 410958652748.dkr.ecr.eu-central-1.amazonaws.com/demo:latest '
             }
