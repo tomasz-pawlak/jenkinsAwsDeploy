@@ -34,6 +34,13 @@ pipeline {
                 echo dockerhub_PSW
             }
         }
+        stage('Setup') {
+            steps {
+                dir ('bin') {
+                    deleteDir()
+                }
+            }
+        }
 //        stage('test') {
 //            steps {
 //                sh 'mvn test -f pom.xml'
