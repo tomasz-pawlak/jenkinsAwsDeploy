@@ -15,7 +15,7 @@ pipeline {
         IMAGE_TAG="${env.BUILD_ID}"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
         dockerhub=credentials('docker')
-        registryCredential = credentials('aws')
+        registryCredential = credentials('awl')
     }
     stages {
         stage('Which Java?') {
@@ -60,7 +60,7 @@ pipeline {
         stage('Docker push to ECR') {
             steps {
 //                sh 'aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 410958652748.dkr.ecr.eu-central-1.amazonaws.com'
-                sh 'aws ecr get-login-password --region eu-central-1 | docker login --username AWk --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com'
+                sh 'aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com'
                 sh 'docker push $AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com/demo:latest '
             }
         }
