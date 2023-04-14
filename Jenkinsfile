@@ -5,6 +5,15 @@ pipeline {
 //        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
     }
     environment{
+        AWS_ACCOUNT_ID="410958652748"
+        AWS_DEFAULT_REGION="eu-central-1"
+        CLUSTER_NAME="CHANGE_ME"
+        SERVICE_NAME="CHANGE_ME"
+        TASK_DEFINITION_NAME="CHANGE_ME"
+        DESIRED_COUNT="CHANGE_ME"
+        IMAGE_REPO_NAME="CHANGE_ME"
+        IMAGE_TAG="${env.BUILD_ID}"
+        REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
         dockerhub=credentials('docker')
         registryCredential = credentials('aws')
     }
@@ -30,16 +39,23 @@ pipeline {
 //                sh 'mvn test -f pom.xml'
 //            }
 //        }
-//        stage('Build maven') {
-//            steps {
-//                sh 'mvn clean package'
-//            }
-//        }
-//        stage('Build docker image') {
-//            steps {
-//                sh 'docker build -t gurtoc/devops-integration .'
-//            }
-//        }
+        stage('Build maven') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('Build docker image') {
+            steps {
+                sh 'sudo chmod 666 /var/run/docker.sock'
+                sh 'docker build -t demo .'
+                sh 'docker tag demo:latest 410958652748.dkr.ecr.eu-central-1.amazonaws.com/demo:latest '
+            }
+        }
+        stage('Docker push to ECR') {
+            steps {
+                sh 'docker push 410958652748.dkr.ecr.eu-central-1.amazonaws.com/demo:latest '
+            }
+        }
 //        stage('Push image to DockerHub') {
 //            steps {
 //                script {
