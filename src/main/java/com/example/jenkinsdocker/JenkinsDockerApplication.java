@@ -18,6 +18,4 @@ public class JenkinsDockerApplication {
         return "hello app";
     }
 
-    //test linux
-
 }
