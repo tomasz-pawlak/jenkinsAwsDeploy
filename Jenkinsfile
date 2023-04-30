@@ -39,7 +39,7 @@ pipeline {
                 dir ('bin') {
                     deleteDir()
                 }
-                echo AWS
+                echo $AWS_ACCESS_KEY_ID
             }
         }
 //        stage('test') {
