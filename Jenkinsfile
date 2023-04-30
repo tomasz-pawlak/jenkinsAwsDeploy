@@ -9,7 +9,7 @@ pipeline {
         AWS_DEFAULT_REGION="eu-central-1"
         CLUSTER_NAME="custom"
         SERVICE_NAME="myTask"
-        TASK_DEFINITION_NAME="service"
+        TASK_DEFINITION_NAME="spring2"
         DESIRED_COUNT="1"
         IMAGE_REPO_NAME="demo"
         IMAGE_TAG="${env.BUILD_ID}"
