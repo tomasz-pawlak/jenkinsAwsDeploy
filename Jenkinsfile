@@ -40,7 +40,7 @@ pipeline {
                 dir ('bin') {
                     deleteDir()
                 }
-                echo $registryCredential
+//                 echo $registryCredential
             }
         }
 //        stage('test') {
