@@ -15,8 +15,8 @@ pipeline {
         IMAGE_TAG="${env.BUILD_ID}"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
 //         dockerhub=credentials('docker')
-        registryCredential = "AKIAV7LYLMVGDVIPMUDL"
-//         registryCredential = credentials('aws')
+//         registryCredential = "AKIAV7LYLMVGDVIPMUDL"
+        registryCredential = credentials('aws')
     }
     stages {
 //        stage('Which Java?') {
