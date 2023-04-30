@@ -1,9 +1,9 @@
 {
-    "family": "FAMILY",
+    "family": "spring2",
     "containerDefinitions": [
         {
             "image": "REPOSITORY_URI:BUILD_NUMBER",
-            "name": "NAME",
+            "name": "springRepo2",
             "essential": true,
             "portMappings": [
                 {
@@ -19,5 +19,5 @@
         "FARGATE"
     ],
     "networkMode": "awsvpc",
-    "executionRoleArn": "ROLE_ARN"
+    "executionRoleArn": "arn:aws:iam::410958652748:role/ecsTaskExecutionRole"
 }
