@@ -39,7 +39,7 @@ pipeline {
                 dir ('bin') {
                     deleteDir()
                 }
-                echo $registryCredential
+                echo 'OZXC'
             }
         }
 //        stage('test') {
