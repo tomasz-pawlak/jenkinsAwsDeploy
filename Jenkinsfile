@@ -39,7 +39,7 @@ pipeline {
                 dir ('bin') {
                     deleteDir()
                 }
-                echo $AWS_ACCESS_KEY_ID
+                echo $registryCredential
             }
         }
 //        stage('test') {
