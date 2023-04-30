@@ -39,7 +39,7 @@ pipeline {
                 dir ('bin') {
                     deleteDir()
                 }
-                echo 'OZXC'
+                echo --username AWS
             }
         }
 //        stage('test') {
