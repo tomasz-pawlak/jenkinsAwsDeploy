@@ -19,7 +19,6 @@ aws ecs register-task-definition --cli-input-json file://task-definition.json --
 REVISION=`aws ecs describe-task-definition --task-definition "${TASK_DEFINITION_NAME}" --region "${AWS_DEFAULT_REGION}" | jq .taskDefinition.revision`
 echo "REVISION= " "${REVISION}"
 #aws ecs update-service --cluster "${CLUSTER_NAME}" --service "${SERVICE_NAME}" --task-definition "${TASK_DEFINITION_NAME}":"${REVISION}" --desired-count "${DESIRED_COUNT}"
-aws ecs run-task --cluster "${CLUSTER_NAME}" --task-definition "${TASK_DEFINITION_NAME}":"${REVISION}" --desired-count "${DESIRED_COUNT}"
-
+aws ecs run-task --cluster "${CLUSTER_NAME}" --task-definition "${TASK_DEFINITION_NAME}":"${REVISION}"
 #aws ecs run-task  --cluster tryimport --task-definition fromecr:2 --launch-type="FARGATE" --network-configuration
 # '{ "awsvpcConfiguration": { "assignPublicIp":"ENABLED", "securityGroups": ["sg-e9bd4ab9"], "subnets": ["subnet-0b170efc0b8f6f53b"]}}'
