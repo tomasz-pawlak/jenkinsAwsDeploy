@@ -39,6 +39,7 @@ pipeline {
                 dir ('bin') {
                     deleteDir()
                 }
+                echo 'registryCredential'
             }
         }
 //        stage('test') {
