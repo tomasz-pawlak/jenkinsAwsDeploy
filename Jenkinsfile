@@ -40,7 +40,7 @@ pipeline {
                 dir ('bin') {
                     deleteDir()
                 }
-                echo --username AWS
+                echo $registryCredential
             }
         }
 //        stage('test') {
