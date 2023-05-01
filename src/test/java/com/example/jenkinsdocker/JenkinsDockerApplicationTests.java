@@ -20,7 +20,4 @@ class JenkinsDockerApplicationTests {
         int five = 3+3;
         assertEquals(6, five);
     }
-
-    //some changes2
-
 }

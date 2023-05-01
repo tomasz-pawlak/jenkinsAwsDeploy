@@ -13,11 +13,9 @@ public class JenkinsDockerApplication {
         SpringApplication.run(JenkinsDockerApplication.class, args);
     }
 
-    @GetMapping("/hello")
+    @GetMapping("/")
     public String hello(){
         return "hello app";
     }
-
-    //test linux
 
 }
