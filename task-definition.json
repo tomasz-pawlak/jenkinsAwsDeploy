@@ -1,9 +1,9 @@
 {
-    "family": "spring2",
+    "family": "spring",
     "containerDefinitions": [
         {
             "image": "REPOSITORY_URI:BUILD_NUMBER",
-            "name": "springRepo2",
+            "name": "spring",
             "essential": true,
             "portMappings": [
                 {
