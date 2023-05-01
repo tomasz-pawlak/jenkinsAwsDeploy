@@ -24,32 +24,31 @@ pipeline {
                 dir ('bin') {
                     deleteDir()
                 }
-//                 echo $registryCredential
             }
         }
-//        stage('test') {
-//            steps {
-//                sh 'mvn test -f pom.xml'
-//            }
-//        }
-//        stage('Build maven') {
-//            steps {
-//                sh 'mvn clean package'
-//            }
-//        }
-//        stage('Build docker image') {
-//            steps {
-//                sh 'docker build -t demo .'
-//                sh 'docker tag demo:latest 410958652748.dkr.ecr.eu-central-1.amazonaws.com/demo:latest '
-//            }
-//        }
-//         stage('Docker push to ECR') {
-//             steps {
-// //                sh 'aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 410958652748.dkr.ecr.eu-central-1.amazonaws.com'
-//                 sh 'aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com'
-//                 sh 'docker push $AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com/demo:latest '
-//             }
-//         }
+       stage('test') {
+           steps {
+               sh 'mvn test -f pom.xml'
+           }
+       }
+       stage('Build maven') {
+           steps {
+               sh 'mvn clean package'
+           }
+       }
+       stage('Build docker image') {
+           steps {
+               sh 'docker build -t demo .'
+               sh 'docker tag demo:latest 410958652748.dkr.ecr.eu-central-1.amazonaws.com/demo:latest '
+           }
+       }
+        stage('Docker push to ECR') {
+            steps {
+//                sh 'aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 410958652748.dkr.ecr.eu-central-1.amazonaws.com'
+                sh 'aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com'
+                sh 'docker push $AWS_ACCOUNT_ID.dkr.ecr.eu-central-1.amazonaws.com/demo:latest '
+            }
+        }
              stage('Deploy') {
                 steps{
                        withAWS(credentials: 'aws', region: "${AWS_DEFAULT_REGION}") {
